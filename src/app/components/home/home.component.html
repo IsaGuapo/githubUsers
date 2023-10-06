@@ -1,7 +1,17 @@
 <header class="bg-dark p-3 text-white shadow">
-    <app-header></app-header>
+    <app-header (emiterName)="getUsers($event)"></app-header>
 </header>
 
 <main>
-    <p> Contenido <i class="fa-solid fa-magnifying-glass"></i></p>
+    <section class="container mt-3">
+        <h1> Listado de usuarios Git Hub</h1>
+        <hr>
+
+        <ul *ngIf="arrUsers.length !== 0">
+            <li *ngFor="let user of arrUsers">{{user.login}}</li>
+        </ul>
+
+        <p *ngIf="arrUsers.length === 0"> No se han encontrado usuarios con ese nombre </p>
+    </section>
+
 </main>

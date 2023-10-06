@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormControl } from '@angular/forms';
+import { UsersService } from 'src/app/services/users.service';
 
 
 @Component({
@@ -10,15 +11,30 @@ import { FormControl } from '@angular/forms';
 })
 export class HeaderComponent {
   searchForm: FormGroup
+  @Output () emiterName:  EventEmitter<string>;
 
-  constructor(){
+  constructor(private userService: UsersService){
+    this.emiterName = new EventEmitter();
     this.searchForm =new FormGroup({
       name:new FormControl('',[])
     },[])
   }
 
-  getData() :void{
-   console.log(this.searchForm.value) 
+  // async getData(): Promise<void>{
+  //   try{
+  //     let name =this.searchForm.value;
+  //     let response = await this.userService.getUsersByName (name)
+  //     console.log(response)
+  //   }
+  //   catch(error){
+  //     console.log (error)
+  //   }
+   
+  // }
+
+  getData(): void{
+    //Emitir al padre (Home)
+    this.emiterName.emit(this.searchForm.value.name)
   }
 
 }
