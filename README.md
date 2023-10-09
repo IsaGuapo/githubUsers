@@ -1,6 +1,12 @@
 # Proyecto1
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.4.
+This project was generated with Angular version 16.2.4 like a technical test.
+
+## About this
+
+You will find app that through a search engine allows us to search for users with te public Api os Git Hub. <i class="fa-brands fa-github"></i>
+You can showing the results in a list when you clicl on te name you want ti get more information.
+You will see their Git Hub avatar and the numbers of followers.
 
 ## Development server
 
