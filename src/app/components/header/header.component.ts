@@ -1,5 +1,5 @@
 import { Component, Output, EventEmitter } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, Validators } from '@angular/forms';
 import { FormControl } from '@angular/forms';
 import { UsersService } from 'src/app/services/users.service';
 
@@ -16,7 +16,9 @@ export class HeaderComponent {
   constructor(private userService: UsersService){
     this.emiterName = new EventEmitter();
     this.searchForm =new FormGroup({
-      name:new FormControl('',[])
+      name:new FormControl('',[
+        Validators.minLength(4)
+      ])
     },[])
   }
 
