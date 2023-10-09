@@ -6,5 +6,7 @@
         </button>
        
     </div>
+    <p *ngIf="searchForm.get('name')?.touched && searchForm.get('name')?.hasError('required')" class="text-danger"> Campo obligatorio</p>
+
     <p *ngIf="searchForm.get('name')?.touched && searchForm.get('name')?.hasError('minlength')" class="text-danger"> Obligatorio escribir un nombre con más de 4 letras</p>
 </form>

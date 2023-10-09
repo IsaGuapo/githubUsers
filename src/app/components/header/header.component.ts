@@ -17,6 +17,7 @@ export class HeaderComponent {
     this.emiterName = new EventEmitter();
     this.searchForm =new FormGroup({
       name:new FormControl('',[
+        Validators.required,
         Validators.minLength(4)
       ])
     },[])
